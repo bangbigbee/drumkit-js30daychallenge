@@ -1,0 +1,44 @@
+html{
+    background: url('background.jpg');
+    font-family:sans-serif
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    align-content: center;
+}
+
+.key{
+    border: black;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    color: orange;
+    transition: all .05s ease;
+    background: rgba(0,0,0,0.4);
+    
+
+}
+
+.keys{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+kbd{
+    font-size: 4rem;
+    display: block;
+    
+}
+
+.playing{
+    transform: scale(1.5);
+    border-color: teal;
+    box-shadow: 0 0 1rem #ffc600;
+
+}

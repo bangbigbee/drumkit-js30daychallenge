@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drumkit - I do myself</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../mystyle.css">
 </head>
 <body>
     <h1>DRUM KIT</h1>
@@ -57,14 +57,22 @@
     <audio data-key="76" src="../sounds/tink.wav"> </audio>
 
 <script>
+    function removeTransition(e){
+        if (e.propertyName !== 'transform') return;
+        e.target.classList.remove('playing'); //take the element that trigger the event, here is the key being pressed
+    }
     function playSound(e) {
         const audio =  document.querySelector(`audio[data-key="${e.keyCode}"]`);
         const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
     if(!audio) return;
-    audio.play();
     key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
     }
+    const keys = Array.from(document.querySelectorAll('.key')); // create an array keys with item key from a nodeList
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
     window.addEventListener('keydown', playSound);
+
 </script>
 
 </div>    
